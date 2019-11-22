@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Clairette</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/flexslider.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize-3.0.3.min.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
+    <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla"> -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Subrayada&display=swap" rel="stylesheet"> 
+    <!-- JavaScript de l'application -->
+    <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+    <script src="<?= $wwwUrl ?>/js/jquery.flexslider-min.js" defer="true"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script >
+    $(window).on('load', function() {
+        $('.flexslider').flexslider({
+            //  directionNav: false,
+            controlNav: false, 
+            // smoothHeight:true,
+            // pauseOnHover: true
+        });
+    });
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="flex">
+                <!-- Interface admin -->
+                <?php if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin') : ?>
+                    <a href="<?= $requestUrl ?>/admin/home"><img src="<?= $wwwUrl ?>/images/logo4.png" alt="logo"></a>
+                    <nav>
+                        <a href="<?= $requestUrl ?>/admin/illustration">Illustration</a>
+                        <a href="<?= $requestUrl ?>/admin/graphisme">Graphisme</a>
+                        <a href="<?= $requestUrl ?>/admin/about">Présentation</a>
+                        <a href="<?= $requestUrl ?>/admin/about"><i class="fab fa-facebook-square"></i></a>
+                    </nav>
+                    <!-- Interface utilisateur -->
+                <?php else : ?>
+                <a href="<?= $requestUrl ?>"><img src="<?= $wwwUrl ?>/images/logo4.png" alt="logo"></a>
+                <nav>
+                    <a href="<?= $requestUrl ?>/illustration">Illustration</a>
+                    <a href="<?= $requestUrl ?>/graphisme">Graphisme</a>
+                    <a href="<?= $requestUrl ?>/about">Présentation</a>
+                    <a href="<?= $requestUrl ?>/about"><i class="fab fa-facebook-square"></i></a>
+                </nav>
+                <?php endif ?>
+            </div>
+        </div>
+    </header>
+    <!-- Affichage du template lié à la vue -->
+    <?php include $this->viewData['template'] ?>
+    <footer>
+        <div class="container">
+            <div class ="flex">
+                <p> &copy 2019 Clairette</p>
+                <?php if (!isset($_SESSION['user'])) : ?>
+                <a class="connect" href="<?= $requestUrl ?>/utilisateur"> connexion</a>
+                <?php else : ?>
+                <a class="connect" href="<?= $requestUrl ?>/logout"> déconnexion</a>
+                <?php endif ?>
+            </div>
+        </div>
+    </footer>
+<!-- Code principal JavaScript de l'application -->
+<script type=module src="<?= $wwwUrl ?>/js/main.js"></script>
+</body>
+</html>

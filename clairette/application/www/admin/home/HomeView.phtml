@@ -1,0 +1,71 @@
+<main id="index">
+    <div class="container">
+        <div class = flex>
+            <div class="slider">
+                <div class="flexslider">
+                    <ul class="slides">
+                    <?php foreach($projects as $project) : ?>
+                        <li>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?= $project['name']?>" alt="Photo du slider"/>
+                            </figure>
+                        </li>
+                    <?php endforeach ?>
+                    <?php foreach($projectsplus as $projectplus) : ?>
+                        <li>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?= $projectplus['nameplus']?>" alt="Photo du slider"/>
+                            </figure>
+                        </li>
+                    <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="flux">
+                <h1><?= $actu[0]['titreActu']?></h1>
+                <p><?= $actu[0]['texteActu']?></p>
+                <p  class="lien"><a href="<?= $actu[0]['lienActu']?>"><?= $actu[0]['lienActu']?></a></p>
+                <figure>
+                    <a href="<?= $actu[0]['lienImage']?>">
+                        <img src="<?= $wwwUrl ?>/images/illustrations/<?= $actu[0]['name']?>" alt="Photo actu"/>
+                    </a>
+                    <figcaption><?= $actu[0]['titreImage']?></figcaption> 
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div class="formulaireContainer">
+        <form class="formulaire"  action="<?= $requestUrl?>/admin/home" method="post" enctype="multipart/form-data">
+            <div id="partie_un" class="form">
+                <div>
+                    <span><i class="fas fa-heading"></i></span>
+                    <input  class="input" type="text" name="titreActu" id="titreActu" placeholder="Titre eventuel">
+                </div>
+                <div>
+                    <span><i class="fas fa-external-link-alt"></i></span>
+                    <input class="input" type="text" name="lienActu" id="lienActu" placeholder="Lien eventuel">
+                </div>
+                <div class="textePresentation">
+                    <span><i class="fas fa-paragraph"></i></span>
+                    <textarea class="input" name="texteActu" id="texteActu" placeholder="Actualité"></textarea>
+                </div>
+            </div>
+            <div id="partie_deux" class="form">
+                <div>
+                    <span><i class="fas fa-file-image"></i></span>
+                    <label class="input" for="picture1">Choisir un fichier principale</label>
+                    <input type="file" name="picture1[]" class="picture" id="picture1">
+                </div>
+                <div>
+                    <span><i class="fas fa-heading"></i></span>
+                    <input  class="input" type="text" name="titreImage" id="titreImage" placeholder="Titre du fichier principale eventuel">
+                </div>
+                <div>
+                    <span><i class="fas fa-external-link-alt"></i></span>
+                    <input class="input" type="text" name="lienImage" id="lienImage" placeholder="Lien eventuel pour l'image">
+                </div>
+                <button class="button" type="submit">Actualiser</button>
+            </div>
+        </form>
+    </div>
+</main>

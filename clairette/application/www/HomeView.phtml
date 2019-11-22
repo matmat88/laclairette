@@ -1,0 +1,37 @@
+<main id="index">
+    <div class="container">
+        <div class = flex>
+            <div class="slider">
+                <div class="flexslider">
+                    <ul class="slides">
+                    <?php foreach($projects as $project) : ?>
+                        <li>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?= $project['name']?>" alt="Photo du slider"/>
+                            </figure>
+                        </li>
+                    <?php endforeach ?>
+                    <?php foreach($projectsplus as $projectplus) : ?>
+                        <li>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?= $projectplus['nameplus']?>" alt="Photo du slider"/>
+                            </figure>
+                        </li>
+                    <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="flux">
+                <h1><?= $actu[0]['titreActu']?></h1>
+                <p><?= $actu[0]['texteActu']?></p>
+                <p  class="lien"><a href="<?= $actu[0]['lienActu']?>"><?= $actu[0]['lienActu']?></a></p>
+                <figure>
+                    <a href="<?= $actu[0]['lienImage']?>">
+                        <img src="<?= $wwwUrl ?>/images/illustrations/<?= $actu[0]['name']?>" alt="Photo actu"/>
+                    </a>
+                    <figcaption><?= $actu[0]['titreImage']?></figcaption> 
+                </figure>
+            </div>
+        </div>
+    </div>
+</main>

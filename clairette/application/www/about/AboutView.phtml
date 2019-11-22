@@ -1,0 +1,52 @@
+<main id="about" >
+<div class="container">
+    <div class="flex">
+        <?php
+        // var_dump($presentations);
+        // die;
+        ?>
+        <section class="presentation">
+            <h1><?= $presentations[0]['titrePresentation']?></h1>
+            <p><?= $presentations[0]['textePresentation']?></p>
+        </section>
+        <aside class="contact">
+                <figure>
+                    <img class="imgPresentation" src="<?= $wwwUrl ?>/images/illustrations/<?= $presentations[0]['name']?>"/>
+                    <?php if (isset($presentations[0]['titreImage']) ) : ?>
+                    <figcaption class="titreImage">
+                        <p><?= $presentations[0]['titreImage']?></p>
+                    </figcaption>
+                    <?php endif ?>
+                </figure>
+                <?php if (isset($presentations[0]['adresse']) ) : ?>
+                    <iframe class="carte" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21423.807794951714!2d-64.94300499284675!3d18.336791242826976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c051af3d054030f%3A0xecd6a29f2741e6db!2sCharlotte%20Amalie%2C%20St%20Thomas%2000802%2C%20%C3%8Eles%20Vierges%20des%20%C3%89tats-Unis!5e0!3m2!1sfr!2sfr!4v1573897815175!5m2!1sfr!2sfr"  height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    <div class="champs">
+                        <div class="icone_titre">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h2>Adresse</h2>
+                        </div>
+                        <p><?= $presentations[0]['adresse']?></p>
+                    </div>
+                <?php endif ?>
+                <?php if (isset($presentations[0]['tel']) ) : ?>
+                    <div class="champs">
+                        <div class="icone_titre">
+                            <i class="fas fa-phone-square-alt"></i>
+                            <h2>Téléphone</h2>
+                        </div>
+                        <p><?= $presentations[0]['tel']?></p>
+                    </div>
+                <?php endif ?>
+                <?php if (isset($presentations[0]['mail']) ) : ?>
+                    <div class="champs">
+                        <div class="icone_titre">
+                            <i class="fas fa-envelope"></i>
+                            <h2>E-mail</h2>
+                        </div>
+                        <p><?= $presentations[0]['mail']?></p>
+                    </div>
+                <?php endif ?>
+        </aside>
+    </div>
+</div>
+</main>

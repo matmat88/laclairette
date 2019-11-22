@@ -1,0 +1,164 @@
+<main id="illustration" class="gallerie">
+    <div class="container">
+        <div class="flex">
+            <?php
+            /*pour mettre 3 résultats par ligne */
+            $totProjectIllustration=count($projectIllustrations);
+            $resultDivision= (int)($totProjectIllustration/3);
+            /*x =>nombre de lignes avec 3 items(projet)*/
+            $x=$resultDivision;
+            $resteDivision = $totProjectIllustration % 3;
+            /*y =>nombre d'items(projet) restant sur la dernière ligne*/
+            $y=$resteDivision;
+            $totItem = $resultDivision * 3;/*nombre d'items(projet) présent sur une ligne de 3*/
+            
+            /*Création dynamique du Tableau vide pour stocker les items*/
+            $tab8Item =array(0,1,2,3,4,5,6,7,);/*création tableau contenant les 8 items (ou caractéristiques) de chaque item(Projet)*/
+            $tab3Item =array(0,1,2);/*création tableau contenant les 3 items(projet)*/
+            $tab3Item[0]=$tab8Item;
+            $tab3Item[1]=$tab8Item;
+            $tab3Item[2]=$tab8Item;
+            $tabXItem = [];/*création tableau contenant le nombre de ligne avec 3 items(Projet)*/
+            for ($i = 0; $i <=$x-1; $i++) {
+                $tabXItem[$i]= $tab3Item;
+            }
+            $bigTab = array(0,1);/*création du grand tableau contenant l'ensembles des items*/
+            $bigTab[0]=$tabXItem;
+            $tabYItem = [];/*création du tableau contenant les items(projet) présent sur la dernière ligne*/
+            for ($i = 0; $i <=$y-1; $i++) {
+                $tabYItem[$i]= $tab8Item;
+            }
+            $tab1Item =array(0);/*création du tableau contenant la dernière ligne avec les items(projets) restants*/
+            $tab1Item[0]=$tabYItem;
+            $bigTab[1]=$tab1Item;
+
+            /*Association des valeurs du tableau $projectIllustrations au tableau $bigTab[0]*/
+            $p=0;
+            for($m=0;$m<=3*$x-1;$m= $m+3){
+                $k=0;
+                for($i = $m; $i<=$m+2; $i++){
+                    $j=0;
+                    foreach($projectIllustrations[$i] as $value){
+                        $bigTab[0][$p][$k][$j]= $value;
+                        $j++;
+                    }
+                    $k++;
+                }
+                $p++;
+            }
+            /*
+            $k=0;
+            for($i = 0; $i<=2; $i++){
+                $j=0;
+                foreach($projectIllustrations[$i] as $value){
+                    $bigTab[0][0][$k][$j]= $value;
+                    $j++;
+                }
+                $k++;
+            }
+            $k=0;
+            for($i = 3; $i<=5; $i++){
+                $j=0;
+                foreach($projectIllustrations[$i] as $value){
+                    $bigTab[0][1][$k][$j]= $value;
+                    $j++;
+                }
+                $k++;
+            }
+            $k=0;
+            for($i = 6; $i<=8; $i++){
+                $j=0;
+                foreach($projectIllustrations[$i] as $value){
+                    $bigTab[0][2][$k][$j]= $value;
+                    $j++;
+                }
+                $k++;
+            }
+            */
+
+            /*Association des valeurs du tableau $projectIllustrations au tableau $bigTab[1]*/
+            if(isset($projectIllustrations[$totItem])){
+                $bigTab[1][0][0]=$projectIllustrations[$totItem];
+            }
+            if(isset($projectIllustrations[$totItem+1])){
+            $bigTab[1][0][1]=$projectIllustrations[$totItem+1];
+            }
+
+            /*
+            $tab1Ligne3[0]=$projectIllustration['id'];
+            $tab1Ligne3[1]=$projectIllustration['nameProject'];
+            $tab1Ligne3[2]=$projectIllustration['nameCommanditaire'];
+            $tab1Ligne3[3]=$projectIllustration['idMedia'];
+            $tab1Ligne3[4]=$projectIllustration['name'];
+            $tab1Ligne3[5]=$projectIllustration['type'];
+            $tab1Ligne3[6]=$projectIllustration['texteDescription'];
+            $tab1Ligne3[7]=$projectIllustration['lien'];
+
+            */
+            // $tabLigne3 = $bigTab[0];
+            // var_dump($tabLigne3);
+            // die;
+            ?>
+            <?php for($i = 0; $i<=$x-1; $i++) : ?>
+                <div class="ligne3Items">
+                    <?php foreach($bigTab[0][$i] as $tab1Ligne3) : ?>
+                        <div class="cibleparent cibleparentAnim small">
+                            <div class="ciblecontenant">
+                                <i class="cible fas fa-angle-double-down"></i>
+                                <!-- <i class="cible fas fa-plus "></i>
+                                <i class="cible fas fa-window-minimize "></i> -->
+                            </div>
+                            <div  class="ajax">
+                                <figure class="animation">
+                                    <img  id="<?= $tab1Ligne3[4]?>" class="imggallerie" src="<?= $wwwUrl ?>/images/illustrations/<?= $tab1Ligne3[4]?>"/>
+                                    <figcaption class="hidden">
+                                        <p><?= $tab1Ligne3[1]?> </p>
+                                        <p> <?= $tab1Ligne3[2]?></p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                </div>
+            <?php endfor ?>
+            <div class="lignelastItems">
+                <?php  if(isset($projectIllustrations[$totItem])) : ?>
+                    <div class="cibleparent cibleparentAnim small">
+                        <div class="ciblecontenant">
+                            <i class="cible fas fa-angle-double-down"></i>
+                            <!-- <i class="cible fas fa-plus"></i>
+                            <i class="cible fas fa-window-minimize"></i> -->
+                        </div>
+                        <div  class="ajax">
+                            <figure class="animation">
+                                <img  id="<?= $bigTab[1][0][0]["name"]?>" class="imggallerie" src="<?= $wwwUrl ?>/images/illustrations/<?= $bigTab[1][0][0]["name"]?>"/>
+                                <figcaption class="hidden">
+                                    <p><?= $bigTab[1][0][0]["nameProject"]?> </p>
+                                    <p> <?= $bigTab[1][0][0]["nameCommanditaire"]?></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                <?php endif ?>
+                <?php  if(isset($projectIllustrations[$totItem+1])) : ?>
+                    <div class="cibleparent cibleparentAnim small">
+                        <div class="ciblecontenant">
+                            <i class="cible fas fa-angle-double-down"></i>
+                            <!-- <i class="cible fas fa-plus display"></i>
+                            <i class="cible fas fa-window-minimize displaynone"></i> -->
+                        </div>
+                        <div  class="ajax">
+                            <figure class="animation">
+                                <img  id="<?= $bigTab[1][0][1]["name"]?>" class="imggallerie" src="<?= $wwwUrl ?>/images/illustrations/<?= $bigTab[1][0][1]["name"]?>"/>
+                                <figcaption class="hidden">
+                                    <p><?= $bigTab[1][0][1]["nameProject"]?> </p>
+                                    <p> <?= $bigTab[1][0][1]["nameCommanditaire"]?></p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                <?php endif ?>
+            </div>
+        </div>
+    </div>
+</main>

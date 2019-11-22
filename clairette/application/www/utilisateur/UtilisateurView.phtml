@@ -1,0 +1,41 @@
+<main id="formulaire">
+    <div class="formulaireContainer">
+        <div class="formulaire">
+            <form class="form" id="partie_all" action="<?= $requestUrl?>/utilisateur" method="post">
+                    <div>
+                        <span><i class="fas fa-grin-wink"></i></span>
+                        <input class="input" type="text" name="login" id="login" placeholder="Identifiant">
+                    </div>
+                    <div>
+                        <span><i class="fas fa-lock"></i></span>
+                        <input class="input" type="text" name="password" id="password" placeholder="Mot de passe">
+                        <button id="crypt" type="button">
+                            <i class="fas fa-eye display"></i>
+                            <i class="fas fa-eye-slash displaynone"></i>
+                        </button>
+                    </div>
+                    <button class="button" type="submit">Se connecter</button>
+            </form>
+        </div>
+
+
+        <!-- <div class="formulaire">
+            <form action="<?= $requestUrl?>/register" method="post">
+                    <div>
+                        <input type="text" name="login" id="login" placeholder="Identifiant">
+                    </div>
+                    <div>
+                        <input type="text" name="password" id="password" placeholder="Mot de passe">
+                    </div>
+                    <div>
+                        <input type="text" name="role" id="role" placeholder="role">
+                    </div>
+                    <button class="login" type="submit">S'enregistrer</button>
+            </form>
+        </div> -->
+</main>
+
+
+
+
+
