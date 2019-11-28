@@ -13,7 +13,6 @@ $projectIllustrationsliders=$projectIllustrations["projectIllustrationsliders"];
 <?php if($projectIllustrationsliders == []):?>
 <div class="zoom">
     <figure>
-        <img  src="/clairette/application/www/images/illustrations/<?= $projectIllustrationscovers[0]['name']?>" alt="Photo du slider" />
         <figcaption>
             <h2><?= $projectIllustrationscovers[0]['nameProject']?> </h2>
             <?php if($projectIllustrationscovers[0]['nameCommanditaire'] !== ""):?>
@@ -31,6 +30,7 @@ $projectIllustrationsliders=$projectIllustrations["projectIllustrationsliders"];
                 </p>
             <?php endif ?>
         </figcaption>
+        <img  src="/clairette/application/www/images/illustrations/<?= $projectIllustrationscovers[0]['name']?>" alt="Photo du slider" />
     </figure>
 </div>
 <?php else :?>

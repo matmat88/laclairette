@@ -49,7 +49,7 @@
   -webkit-backface-visibility: hidden;
 }
 .flexslider .slides img {
-  width: 100%;
+  /* width: 100%; */
   display: block;
 }
 .flexslider .slides:after {
@@ -155,14 +155,14 @@ html[xmlns] .flexslider .slides {
 }
 .flexslider:hover .flex-direction-nav .flex-prev {
   opacity: 0.7;
-  left: 10px;
+  left: 10px;/*fleche qui apparait en hover*/
 }
 .flexslider:hover .flex-direction-nav .flex-prev:hover {
   opacity: 1;
 }
 .flexslider:hover .flex-direction-nav .flex-next {
   opacity: 0.7;
-  right: 10px;
+  right: 10px;/*fleche qui apparait en hover*/
 }
 .flexslider:hover .flex-direction-nav .flex-next:hover {
   opacity: 1;
