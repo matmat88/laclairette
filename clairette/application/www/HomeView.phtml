@@ -1,25 +1,25 @@
 <main id="index">
     <div class="container">
         <div class = flex>
-            <div class="slider">
-                <div class="flexslider">
-                    <ul class="slides">
-                    <?php foreach($projects as $project) : ?>
-                        <li>
-                            <figure>
-                                <img src="<?= $wwwUrl ?>/images/illustrations/<?= $project['name']?>" alt="Photo du slider"/>
-                            </figure>
-                        </li>
+            <!-- Slider main container -->
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <?php foreach($projects as $project) :  ?>
+                        <div class="swiper-slide">
+                            <img src="<?= $wwwUrl ?>/images/illustrations/<?= $project['name']?>" alt="Photo du slider">
+                        </div>
                     <?php endforeach ?>
-                    <?php foreach($projectsplus as $projectplus) : ?>
-                        <li>
-                            <figure>
-                                <img src="<?= $wwwUrl ?>/images/illustrations/<?= $projectplus['nameplus']?>" alt="Photo du slider"/>
-                            </figure>
-                        </li>
-                    <?php endforeach ?>
-                    </ul>
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+            
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
                 </div>
+                <!-- If we need pagination -->
+                <!-- <div class="swiper-pagination"></div> -->
             </div>
             <div class="flux">
                 <h1><?= $actu[0]['titreActu']?></h1>

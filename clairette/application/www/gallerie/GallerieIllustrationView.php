@@ -7,8 +7,9 @@ $projectIllustrations=$controller->httpPostMethodRep($_POST);
 $projectIllustrationscovers=$projectIllustrations["projectIllustrationscovers"];
 $projectIllustrationsliders=$projectIllustrations["projectIllustrationsliders"];
 // var_dump($projectIllustrationscovers);
-// var_dump($projectIllustrationsliders);
-
+// var_dump($_SERVER['SCRIPT_NAME']);
+$wwwUrl=str_replace('/gallerie/GallerieIllustrationView.php','',$_SERVER['SCRIPT_NAME']);
+// var_dump($wwwUrl);
 ?>
 <?php if($projectIllustrationsliders == []):?>
 <div class="zoom">
@@ -30,7 +31,7 @@ $projectIllustrationsliders=$projectIllustrations["projectIllustrationsliders"];
                 </p>
             <?php endif ?>
         </figcaption>
-        <img  src="/clairette/application/www/images/illustrations/<?= $projectIllustrationscovers[0]['name']?>" alt="Photo du slider" />
+        <img  src="<?= $wwwUrl ?>/images/illustrations/<?= $projectIllustrationscovers[0]['name']?>" alt="Photo du slider" />
     </figure>
 </div>
 <?php else :?>
@@ -55,9 +56,9 @@ $projectIllustrationsliders=$projectIllustrations["projectIllustrationsliders"];
                     <?php endif ?>
                 </figcaption>
                 <?php if($projectIllustrationscovers[0]['nameCommanditaire'] == "Faire part"):?>
-                    <img  src="/clairette/application/www/images/illustrations/<?= $projectIllustrationscovers[0]['name']?>" alt="Photo du slider" class="marginLeft" />
+                    <img  src="<?= $wwwUrl ?>/images/illustrations/<?= $projectIllustrationscovers[0]['name']?>" alt="Photo du slider" class="marginLeft" />
                 <?php else :?>
-                    <img  src="/clairette/application/www/images/illustrations/<?= $projectIllustrationscovers[0]['name']?>" alt="Photo du slider" />
+                    <img  src="<?= $wwwUrl ?>/images/illustrations/<?= $projectIllustrationscovers[0]['name']?>" alt="Photo du slider" />
                 <?php endif ?>
             </figure>
         </li>
@@ -81,9 +82,9 @@ $projectIllustrationsliders=$projectIllustrations["projectIllustrationsliders"];
                         <?php endif ?>
                     </figcaption>
                     <?php if($projectIllustrationslider['nameCommanditaire'] == "Faire part"):?>
-                        <img  src="/clairette/application/www/images/illustrations/<?= $projectIllustrationslider['nameplus']?>" alt="Photo du slider" class="marginLeft" />
+                        <img  src="<?= $wwwUrl ?>/images/illustrations/<?= $projectIllustrationslider['nameplus']?>" alt="Photo du slider" class="marginLeft" />
                     <?php else :?>
-                        <img  src="/clairette/application/www/images/illustrations/<?= $projectIllustrationslider['nameplus']?>" alt="Photo du slider" />
+                        <img  src="<?= $wwwUrl ?>/images/illustrations/<?= $projectIllustrationslider['nameplus']?>" alt="Photo du slider" />
                     <?php endif ?>
                 </figure>
             </li>

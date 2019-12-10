@@ -5,7 +5,8 @@ class HomeController
     public function httpGetMethod(Http $http, array $queryFields)
     {
 		$model = new ProjectModel(new Database());
-		$projects = $model->displayGoodCouv('Faire part');
+        // $projects = $model->displayGoodCouv('Faire part');
+        $projects = $model->displayByCategories('illustration');
 		$projectsplus = $model->displayGoodPlus('Faire part');
         $modelActu = new ActualiteModel(new Database());
         $actu= $modelActu->displayActu();

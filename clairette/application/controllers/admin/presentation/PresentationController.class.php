@@ -1,6 +1,6 @@
 <?php
 
-class AboutController
+class PresentationController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {

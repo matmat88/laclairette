@@ -66,7 +66,7 @@ export function makeItSlider(event, GALLERIE_URL)
                 }
             }
             bigPresenceParentBeforeTarget();
-            console.log(bigPresenceParentBeforeTarget());
+            // console.log(bigPresenceParentBeforeTarget());
             if(cibleParentBeforeTarget !== null && bigPresenceParentBeforeTarget() == false){
                 cibleParentBeforeTarget.classList.add('cibleparentAnim');
             }

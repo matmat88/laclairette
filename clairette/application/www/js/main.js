@@ -1,5 +1,7 @@
 import { onClickCrypt } from './formulaire.js'
 import { makeItSlider } from './gallerie.js'
+import { getWwwUrl } from './utilities.js'
+
 
 
 'use strict';
@@ -19,13 +21,14 @@ if(crypt !== null){
 //     }
 // }
 
+let wwwUrl =getWwwUrl();
 
 let linksGraphisme = document.querySelectorAll('#graphisme .cible');
 if (linksGraphisme !== null){
     for(let i=0; i<linksGraphisme.length;i++){
         let linkGraphisme =linksGraphisme[i];
         linkGraphisme.addEventListener('click', function(){
-            let GALLERIE_URL = "http://127.0.0.1/clairette/application/www/gallerie/GallerieGraphismeView.php";
+            let GALLERIE_URL = `${wwwUrl}/gallerie/GallerieGraphismeView.php`;
             makeItSlider(event,GALLERIE_URL);
         }, {once:true});
     }
@@ -36,7 +39,7 @@ if (linksIllustration !== null){
     for(let i=0; i<linksIllustration.length;i++){
         let linkIllustration =linksIllustration[i];
         linkIllustration.addEventListener('click', function(){
-            let GALLERIE_URL = "http://127.0.0.1/clairette/application/www/gallerie/GallerieIllustrationView.php";
+            let GALLERIE_URL = `${wwwUrl}/gallerie/GallerieIllustrationView.php`;
             makeItSlider(event,GALLERIE_URL);
         }, {once:true});
     }

@@ -6,13 +6,12 @@ $controller= new AjaxGallerieGraphismeController;
 $projectGraphismes=$controller->httpPostMethodRep($_POST);
 $projectGraphismescovers=$projectGraphismes["projectGraphismescovers"];
 $projectGraphismesliders=$projectGraphismes["projectGraphismesliders"];
-
-
+$wwwUrl=str_replace('/gallerie/GallerieGraphismeView.php','',$_SERVER['SCRIPT_NAME']);
 ?>
 <?php if($projectGraphismesliders == []):?>
 <div class="zoom">
     <figure>
-        <img  src="/clairette/application/www/images/illustrations/<?= $projectGraphismescovers[0]['name']?>" alt="Photo du slider" />
+        <img  src="<?= $wwwUrl ?>/images/illustrations/<?= $projectGraphismescovers[0]['name']?>" alt="Photo du slider" />
         <figcaption>
             <h2><?= $projectGraphismescovers[0]['nameProject']?> </h2>
             <?php if($projectGraphismescovers[0]['nameCommanditaire'] !== ""):?>
@@ -53,7 +52,7 @@ $projectGraphismesliders=$projectGraphismes["projectGraphismesliders"];
                         </p>
                     <?php endif ?>
                 </figcaption>
-                    <img  src="/clairette/application/www/images/illustrations/<?= $projectGraphismescovers[0]['name']?>" alt="Photo du slider" />
+                    <img  src="<?= $wwwUrl ?>/images/illustrations/<?= $projectGraphismescovers[0]['name']?>" alt="Photo du slider" />
             </figure>
         </li>
         <?php 
@@ -75,7 +74,7 @@ $projectGraphismesliders=$projectGraphismes["projectGraphismesliders"];
                             </p>
                         <?php endif ?>
                     </figcaption>
-                        <img  src="/clairette/application/www/images/illustrations/<?= $projectGraphismeslider['nameplus']?>" alt="Photo du slider" />
+                        <img  src="<?= $wwwUrl ?>/images/illustrations/<?= $projectGraphismeslider['nameplus']?>" alt="Photo du slider" />
                 </figure>
             </li>
         <?php endforeach ?>

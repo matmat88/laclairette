@@ -11,9 +11,9 @@ class AjaxDatabase
 
 		$this->pdo = new PDO
 		(
-            'mysql:host=localhost;dbname=Clairette',
-            'root',
-            ''
+            'mysql:host=localhost;dbname=claiprag_clairette',
+            'claiprag_root',
+            'Taverne1*Taverne1*'
 		);
 
 		$this->pdo->exec('SET NAMES UTF8');

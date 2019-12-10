@@ -41,7 +41,7 @@ function formatMoneyAmount(amount)
     return formatter.format(amount);
 }
 
-function getRequestUrl()
+export function getRequestUrl()
 {
 	var requestUrl;
 
@@ -57,7 +57,7 @@ function getRequestUrl()
 	return requestUrl;
 }
 
-function getWwwUrl()
+export function getWwwUrl()
 {
 	var wwwUrl;
 
